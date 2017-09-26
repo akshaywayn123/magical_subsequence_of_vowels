@@ -7,7 +7,7 @@ int main()
 
 {    
 
-  std::string a="aaaeiiaaeeoooaeiu"; 
+  std::string a="iiaiaaeeiaeooaieouu"; 
   unsigned int len = a.length();
   unsigned int i=0,count =0,countmax =0;
   bool newstring = true;
