@@ -1,0 +1,66 @@
+#include <iostream>
+
+using namespace std;
+unsigned int getcount ( string a, unsigned int m,unsigned int n );
+
+int main()
+
+{    
+
+  std::string a="aaaeiiaaeeoooaeiu"; 
+  unsigned int len = a.length();
+  unsigned int i=0,count =0,countmax =0;
+  bool newstring = true;
+
+  while(i<len)
+
+  {
+      if(a.at(i) == 'a' && newstring == true) 
+
+      {
+          newstring = false;
+          count = getcount(a,i,len);
+          if(count > countmax) 
+
+          {
+
+             countmax = count;
+             count = 0;
+
+          }
+        } 
+        else if(a.at(i)!='a')
+        {
+            newstring = true;
+        }
+        i++;
+    }
+    cout<<countmax;
+    return 0;
+}
+
+unsigned int getcount(string a, unsigned int m,unsigned int n )
+{
+    std::string akki("aeiou");
+    unsigned int sequence=0,count =0;
+    unsigned int current =m;
+    bool compstr = false;
+    while(current<n)
+    {
+        if(a.at(current) == akki.at(sequence)) 
+        {
+            count++;
+        }
+        else if((sequence <= (akki.size()-2)) && (a.at(current) == akki.at(sequence +1)))
+        {
+            sequence++; 
+            count++;
+            if (sequence== 4) 
+                compstr =true;
+        }
+        current++;
+    }
+    if (compstr == true) 
+        return count;
+   return 0;
+}
